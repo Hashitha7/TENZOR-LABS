@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ExternalLink, Code2, Mail } from 'lucide-react'
 
@@ -10,7 +11,7 @@ const team = [
     degree: 'B.Sc. (Hons) in Information Technology',
     specialization: 'Specialized in Data Science',
     university: 'SLIIT',
-    initials: 'SU',
+    photo: '/Sasmitha.jpeg',
     gradient: 'from-blue-600 to-cyan-500',
     borderColor: 'rgba(0, 168, 255, 0.4)',
     glowColor: 'rgba(0, 168, 255, 0.2)',
@@ -23,7 +24,7 @@ const team = [
     degree: 'BSc (Hons) in Software Engineering',
     specialization: 'Software Architecture & Development',
     university: 'SLIIT City Uni',
-    initials: 'HD',
+    photo: '/Hashitha.jpeg',
     gradient: 'from-indigo-600 to-blue-500',
     borderColor: 'rgba(99, 102, 241, 0.4)',
     glowColor: 'rgba(99, 102, 241, 0.2)',
@@ -80,24 +81,44 @@ export default function Team() {
                 style={{ background: `linear-gradient(90deg, transparent, ${member.borderColor}, transparent)` }}
               />
 
-              {/* Avatar */}
+              {/* Avatar — real photo */}
               <div className="flex justify-center mb-6">
                 <div className="relative">
+                  {/* Outer glow ring */}
                   <div
-                    className={`w-24 h-24 rounded-full bg-gradient-to-br ${member.gradient} flex items-center justify-center text-3xl font-orbitron font-900 text-white shadow-2xl group-hover:scale-105 transition-transform duration-300`}
-                    style={{ boxShadow: `0 0 40px ${member.glowColor}` }}
+                    className="absolute -inset-[3px] rounded-full"
+                    style={{
+                      background: `linear-gradient(135deg, ${member.borderColor}, transparent 60%, ${member.borderColor})`,
+                      filter: `blur(1px)`,
+                    }}
+                  />
+                  {/* Photo container */}
+                  <div
+                    className="relative w-28 h-28 rounded-full overflow-hidden group-hover:scale-105 transition-transform duration-300 z-10"
+                    style={{
+                      boxShadow: `0 0 30px ${member.glowColor}, 0 0 60px ${member.glowColor.replace('0.2', '0.1')}`,
+                      border: `2px solid ${member.borderColor}`,
+                    }}
                   >
-                    {member.initials}
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      fill
+                      sizes="112px"
+                      className="object-cover object-top"
+                      priority
+                    />
                   </div>
                   {/* Online indicator */}
-                  <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-green-400 border-2 border-darker" />
-                  {/* Pulse ring */}
+                  <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-green-400 border-2 border-darker z-20" />
+                  {/* Pulse ring on hover */}
                   <div
-                    className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
                     style={{
                       background: 'transparent',
                       border: `1px solid ${member.borderColor}`,
                       animation: 'pulse-ring-member 2s ease-out infinite',
+                      transform: 'scale(1.15)',
                     }}
                   />
                 </div>

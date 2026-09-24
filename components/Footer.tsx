@@ -142,9 +142,7 @@ export default function Footer() {
           <p className="text-white/30 font-space text-xs">
             © {new Date().getFullYear()} TENZOR LABS. All rights reserved.
           </p>
-          <p className="text-white/20 font-orbitron text-[10px] tracking-[3px]">
-            BUILT WITH ❤️ IN SRI LANKA
-          </p>
+
         </div>
       </div>
     </footer>

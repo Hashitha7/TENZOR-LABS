@@ -2,15 +2,15 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Home, Briefcase, Info, LayoutTemplate, Users, Mail } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Services', href: '#services' },
-  { label: 'Why Us', href: '#why-us' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Team', href: '#team' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '#home', icon: Home },
+  { label: 'Services', href: '#services', icon: Briefcase },
+  { label: 'Why Us', href: '#why-us', icon: Info },
+  { label: 'Portfolio', href: '#portfolio', icon: LayoutTemplate },
+  { label: 'Team', href: '#team', icon: Users },
+  { label: 'Contact', href: '#contact', icon: Mail },
 ]
 
 export default function Navbar() {
@@ -130,19 +130,23 @@ export default function Navbar() {
             className="fixed top-[72px] left-0 right-0 z-40 glass-dark border-b border-blue-500/20 py-6 px-6 md:hidden"
           >
             <div className="flex flex-col gap-5">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className={`nav-link text-left ${
-                    activeSection === link.href.replace('#', '')
-                      ? 'text-accent'
-                      : ''
-                  }`}
-                >
-                  {link.label}
-                </button>
-              ))}
+              {navLinks.map((link) => {
+                const Icon = link.icon
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => handleNavClick(link.href)}
+                    className={`nav-link flex items-center gap-3 text-left ${
+                      activeSection === link.href.replace('#', '')
+                        ? 'text-accent'
+                        : ''
+                    }`}
+                  >
+                    <Icon size={18} />
+                    {link.label}
+                  </button>
+                )
+              })}
               <button
                 onClick={() => handleNavClick('#contact')}
                 className="btn-primary text-center"

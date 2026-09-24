@@ -64,7 +64,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   }, [inView, value])
 
   return (
-    <span ref={ref} className="counter-value text-4xl md:text-5xl font-900">
+    <span ref={ref} className="counter-value text-2xl sm:text-3xl md:text-5xl font-900">
       {count}{suffix}
     </span>
   )
@@ -112,12 +112,12 @@ export default function WhyUs() {
             <div
               key={stat.label}
               id={`stat-${i}`}
-              className="text-center p-6 glass border-glow rounded-2xl hover:border-blue-400/40 transition-all duration-300 group"
+              className="text-center p-3 sm:p-5 md:p-6 glass border-glow rounded-2xl hover:border-blue-400/40 transition-all duration-300 group"
             >
-              <div className="mb-2">
+              <div className="mb-1">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="font-orbitron text-xs text-white/50 tracking-[2px] uppercase group-hover:text-accent transition-colors">
+              <p className="font-orbitron text-[9px] sm:text-xs text-white/50 tracking-[1.5px] sm:tracking-[2px] uppercase group-hover:text-accent transition-colors leading-tight">
                 {stat.label}
               </p>
             </div>

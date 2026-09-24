@@ -460,7 +460,7 @@ body {
   .form-input { padding: 10px 12px; font-size: 0.8rem; }
   
   /* Portfolio specific */
-  .min-h-[360px] { min-h: 280px !important; }
+  .\min-h-\[360px\] { min-height: 280px !important; }
 }
 
 /* --- MOBILE PORTRAIT (380px - 639px) --- */

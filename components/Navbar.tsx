@@ -123,33 +123,37 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-[72px] left-0 right-0 z-40 glass-dark border-b border-blue-500/20 py-6 px-6 md:hidden"
+            className="fixed top-[72px] left-0 right-0 bottom-0 z-40 glass-dark border-t border-blue-500/10 px-6 pt-6 pb-8 md:hidden flex flex-col overflow-y-auto"
+            style={{ backdropFilter: 'blur(20px)' }}
           >
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-3">
               {navLinks.map((link) => {
                 const Icon = link.icon
+                const isActive = activeSection === link.href.replace('#', '')
                 return (
                   <button
                     key={link.href}
                     onClick={() => handleNavClick(link.href)}
-                    className={`nav-link flex items-center gap-3 text-left ${
-                      activeSection === link.href.replace('#', '')
-                        ? 'text-accent'
-                        : ''
+                    className={`flex items-center gap-4 text-left p-4 rounded-xl border transition-all duration-300 w-full ${
+                      isActive
+                        ? 'bg-blue-500/10 border-blue-500/30 text-accent shadow-[0_0_20px_rgba(0,168,255,0.1)]'
+                        : 'bg-transparent border-transparent text-white/70 hover:bg-white/5 hover:text-white'
                     }`}
                   >
-                    <Icon size={18} />
-                    {link.label}
+                    <Icon size={20} className={isActive ? 'text-accent' : 'text-white/40'} />
+                    <span className="font-orbitron text-sm tracking-[2px]">{link.label}</span>
                   </button>
                 )
               })}
+            </div>
+            <div className="mt-auto pt-6">
               <button
                 onClick={() => handleNavClick('#contact')}
-                className="btn-primary text-center"
+                className="btn-primary w-full py-4 text-sm justify-center"
               >
                 Get Started
               </button>

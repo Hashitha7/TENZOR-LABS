@@ -440,88 +440,72 @@ body {
 }
 
 /* =============================================
-   RESPONSIVE — Mobile First
-   xs: 0-479px | sm: 480-639px | md: 640-767px
-   lg: 768-1023px | xl: 1024px+
+   RESPONSIVE — Ultra Precise Fit
    ============================================= */
 
-/* --- MOBILE (< 640px) --- */
-@media (max-width: 639px) {
-  /* Typography */
-  .section-title { font-size: 2rem; line-height: 1.15; }
-  .section-subtitle { font-size: 0.95rem; }
+/* --- VERY SMALL PHONES (< 380px) --- */
+@media (max-width: 379px) {
+  html, body { overflow-x: hidden; width: 100vw; max-width: 100%; }
+  .section-title { font-size: 1.5rem !important; line-height: 1.2; }
+  .section-subtitle { font-size: 0.8rem !important; padding: 0 10px; }
+  section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .btn-primary, .btn-outline { padding: 10px 16px; font-size: 0.7rem; width: 100%; text-align: center; justify-content: center; }
+  .service-card { padding: 1rem; border-radius: 12px; }
+  .feature-item { padding: 12px 14px; flex-direction: column; text-align: center; align-items: center; gap: 8px; }
+  .feature-item h3 { text-align: center; }
+  .feature-item p { text-align: center; font-size: 0.75rem; }
+  .team-card { padding: 1.2rem; }
+  .contact-icon-wrapper { width: 40px; height: 40px; }
+  .form-input { padding: 10px 12px; font-size: 0.8rem; }
+  
+  /* Portfolio specific */
+  .min-h-[360px] { min-h: 280px !important; }
+}
 
-  /* Section spacing */
-  section { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
-
-  /* Navbar */
-  .nav-link { font-size: 0.8rem; letter-spacing: 1.5px; }
-
-  /* Buttons */
-  .btn-primary, .btn-outline {
-    padding: 12px 22px;
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Hero */
+/* --- MOBILE PORTRAIT (380px - 639px) --- */
+@media (min-width: 380px) and (max-width: 639px) {
+  html, body { overflow-x: hidden; width: 100vw; max-width: 100%; }
+  .section-title { font-size: 1.8rem; line-height: 1.15; }
+  .section-subtitle { font-size: 0.9rem; padding: 0 16px; }
+  section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+  .btn-primary, .btn-outline { padding: 12px 20px; font-size: 0.75rem; width: 100%; justify-content: center; }
   .hero-canvas { opacity: 0.6; }
-  .glitch-text::before,
-  .glitch-text::after { display: none; } /* No glitch on small screens */
-
-  /* Service cards */
+  .glitch-text::before, .glitch-text::after { display: none; }
   .service-card { padding: 1.4rem; border-radius: 16px; }
-  .service-card:hover { transform: translateY(-4px); }
-
-  /* Feature items */
   .feature-item { padding: 14px 16px; gap: 12px; }
-  .feature-item:hover { transform: translateX(4px); }
-
-  /* Team cards */
-  .team-card { border-radius: 18px; }
-
-  /* Form inputs */
+  .team-card { border-radius: 18px; padding: 1.5rem; }
   .form-input { padding: 12px 14px; font-size: 0.9rem; }
-
-  /* Contact icons */
   .contact-icon-wrapper { width: 46px; height: 46px; border-radius: 12px; }
 }
 
-/* --- SMALL PHONES (< 400px) --- */
-@media (max-width: 399px) {
-  .section-title { font-size: 1.7rem; }
-  section { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
-  .btn-primary, .btn-outline { padding: 11px 18px; font-size: 0.7rem; }
-  .service-card { padding: 1.1rem; }
-  .feature-item { flex-wrap: wrap; }
-}
-
-/* --- TABLET (640px – 1023px) --- */
+/* --- MOBILE LANDSCAPE / TABLET (640px – 1023px) --- */
 @media (min-width: 640px) and (max-width: 1023px) {
-  .section-title { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+  html, body { overflow-x: hidden; }
+  .section-title { font-size: clamp(2rem, 4vw, 2.5rem); }
   section { padding-top: 5rem !important; padding-bottom: 5rem !important; }
   .service-card { padding: 1.6rem; }
   .feature-item { padding: 16px 20px; }
-  .btn-primary, .btn-outline { padding: 12px 28px; }
+  .btn-primary, .btn-outline { padding: 12px 24px; font-size: 0.8rem; }
 }
 
-/* --- DESKTOP (≥ 1024px) --- */
-@media (min-width: 1024px) {
-  .section-title { font-size: clamp(2.5rem, 4vw, 3.5rem); }
-  .service-card:hover {
-    transform: translateY(-8px) perspective(1000px) rotateX(3deg);
-  }
+/* --- DESKTOP (1024px – 1279px) --- */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .section-title { font-size: clamp(2.5rem, 4vw, 3rem); }
+  .service-card:hover { transform: translateY(-6px) perspective(1000px) rotateX(2deg); }
 }
 
-/* --- LARGE (≥ 1280px) --- */
+/* --- LARGE DESKTOP (≥ 1280px) --- */
 @media (min-width: 1280px) {
   .section-title { font-size: 3.5rem; }
+  .service-card:hover { transform: translateY(-8px) perspective(1000px) rotateX(3deg); }
 }
 
-/* Hide custom cursor on touch devices */
-@media (hover: none) {
-  [aria-hidden="true"] { display: none !important; }
+/* --- TOUCH DEVICES (Global fixes) --- */
+@media (hover: none) and (pointer: coarse) {
+  * { cursor: auto !important; } /* Restore native cursor on touch */
+  [aria-hidden="true"] { display: none !important; } /* Hide custom cursor divs */
+  .service-card:hover { transform: none !important; } /* Disable heavy 3D hover on touch */
+  .team-card:hover { transform: none !important; box-shadow: none !important; }
+  .feature-item:hover { transform: none !important; }
 }
 

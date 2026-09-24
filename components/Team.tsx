@@ -21,6 +21,7 @@ const team = [
     id: 'hashitha',
     name: 'Hashitha Danidu',
     role: 'Co-Founder & Software Lead',
+    ownerBadge: 'Company Owner',
     degree: 'BSc (Hons) in Software Engineering',
     specialization: 'Software Architecture & Development',
     university: 'SLIIT City Uni',
@@ -129,6 +130,24 @@ export default function Team() {
                 <h3 className="font-orbitron font-800 text-xl text-white mb-1 group-hover:text-gradient transition-all duration-300">
                   {member.name}
                 </h3>
+
+                {/* Company Owner badge — only shown if ownerBadge field exists */}
+                {'ownerBadge' in member && (
+                  <div className="flex justify-center mb-2">
+                    <span
+                      className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-orbitron font-700 tracking-[2px] uppercase"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(251,191,36,0.15), rgba(245,158,11,0.08))',
+                        border: '1px solid rgba(251,191,36,0.5)',
+                        color: '#fbbf24',
+                        boxShadow: '0 0 12px rgba(251,191,36,0.2)',
+                      }}
+                    >
+                      👑 {(member as typeof member & { ownerBadge: string }).ownerBadge}
+                    </span>
+                  </div>
+                )}
+
                 <p className="text-accent text-sm font-space font-600 mb-3 tracking-wide">
                   {member.role}
                 </p>

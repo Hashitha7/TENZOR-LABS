@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Home, Briefcase, Info, LayoutTemplate, Users, Mail, ArrowRight } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Home',      href: '#home',      icon: Home },
-  { label: 'Services',  href: '#services',  icon: Briefcase },
-  { label: 'Why Us',    href: '#why-us',    icon: Info },
+  { label: 'Home', href: '#home', icon: Home },
+  { label: 'Services', href: '#services', icon: Briefcase },
+  { label: 'Why Us', href: '#why-us', icon: Info },
   { label: 'Portfolio', href: '#portfolio', icon: LayoutTemplate },
-  { label: 'Team',      href: '#team',      icon: Users },
-  { label: 'Contact',   href: '#contact',   icon: Mail },
+  { label: 'Team', href: '#team', icon: Users },
+  { label: 'Contact', href: '#contact', icon: Mail },
 ]
 
 export default function Navbar() {
@@ -55,11 +55,10 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
             ? 'glass-dark border-b border-blue-500/10 py-3'
             : 'bg-transparent py-5'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
@@ -94,9 +93,8 @@ export default function Navbar() {
                 key={link.href}
                 id={`nav-${link.label.toLowerCase().replace(' ', '-')}`}
                 onClick={() => handleNavClick(link.href)}
-                className={`nav-link ${
-                  activeSection === link.href.replace('#', '') ? 'text-accent' : ''
-                }`}
+                className={`nav-link ${activeSection === link.href.replace('#', '') ? 'text-accent' : ''
+                  }`}
               >
                 {link.label}
               </button>
@@ -229,14 +227,14 @@ export default function Navbar() {
                         style={
                           isActive
                             ? {
-                                background: 'linear-gradient(135deg, rgba(0,168,255,0.13), rgba(0,102,255,0.07))',
-                                border: '1px solid rgba(0,168,255,0.28)',
-                                boxShadow: '0 0 16px rgba(0,168,255,0.07)',
-                              }
+                              background: 'linear-gradient(135deg, rgba(0,168,255,0.13), rgba(0,102,255,0.07))',
+                              border: '1px solid rgba(0,168,255,0.28)',
+                              boxShadow: '0 0 16px rgba(0,168,255,0.07)',
+                            }
                             : {
-                                background: 'transparent',
-                                border: '1px solid transparent',
-                              }
+                              background: 'transparent',
+                              border: '1px solid transparent',
+                            }
                         }
                       >
                         {/* Left accent bar when active */}
@@ -297,7 +295,7 @@ export default function Navbar() {
                   Get Started
                 </motion.button>
                 <p className="text-center text-white/15 font-space text-[10px] mt-3 tracking-[2px]">
-                  TENZOR LABS © 2025
+                  TENZOR LABS © 2026
                 </p>
               </div>
             </motion.div>

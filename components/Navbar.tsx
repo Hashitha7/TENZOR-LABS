@@ -53,27 +53,27 @@ export default function Navbar() {
             : 'bg-transparent py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
           <button
             onClick={() => handleNavClick('#home')}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2 sm:gap-3 group flex-shrink-0"
             id="nav-logo"
           >
-            <div className="relative w-10 h-10">
+            <div className="relative w-8 h-8 sm:w-10 sm:h-10">
               <Image
                 src="/logo.png"
                 alt="TENZOR LABS Logo"
                 fill
-                sizes="40px"
+                sizes="(max-width: 640px) 32px, 40px"
                 className="object-contain group-hover:scale-110 transition-transform duration-300"
               />
             </div>
-            <div>
-              <span className="font-orbitron font-900 text-base text-white tracking-widest group-hover:text-accent transition-colors">
+            <div className="flex flex-col sm:flex-row sm:items-baseline">
+              <span className="font-orbitron font-900 text-sm sm:text-base text-white tracking-[2px] sm:tracking-widest group-hover:text-accent transition-colors leading-none sm:leading-normal">
                 TENZOR
               </span>
-              <span className="font-orbitron font-900 text-base text-gradient tracking-widest ml-1">
+              <span className="font-orbitron font-900 text-sm sm:text-base text-gradient tracking-[2px] sm:tracking-widest sm:ml-1 leading-none sm:leading-normal">
                 LABS
               </span>
             </div>

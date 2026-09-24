@@ -159,11 +159,11 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="flex items-center justify-center gap-4 mb-6"
+          className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mb-6"
         >
           {['INNOVATE', 'BUILD', 'EVOLVE'].map((word, i) => (
-            <div key={word} className="flex items-center gap-4">
-              <span className="font-orbitron text-sm font-600 tracking-[4px] text-white/80 hover:text-accent transition-colors cursor-default">
+            <div key={word} className="flex items-center gap-3">
+              <span className="font-orbitron text-xs sm:text-sm font-600 tracking-[3px] sm:tracking-[4px] text-white/80 hover:text-accent transition-colors cursor-default">
                 {word}
               </span>
               {i < 2 && <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />}
@@ -187,12 +187,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.4 }}
-          className="flex flex-wrap items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4"
         >
-          <button id="hero-cta-services" onClick={scrollToServices} className="btn-primary">
+          <button id="hero-cta-services" onClick={scrollToServices} className="btn-primary w-full sm:w-auto">
             Our Services
           </button>
-          <button id="hero-cta-contact" onClick={scrollToContact} className="btn-outline">
+          <button id="hero-cta-contact" onClick={scrollToContact} className="btn-outline w-full sm:w-auto">
             Contact Us
           </button>
         </motion.div>

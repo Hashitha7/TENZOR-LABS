@@ -251,8 +251,8 @@ export default function Contact() {
               </div>
 
               {/* WhatsApp CTA */}
-              <div className="gradient-border p-6">
-                <div className="p-6 rounded-2xl bg-darker">
+              <div className="gradient-border p-4 sm:p-6">
+                <div className="p-4 sm:p-6 rounded-2xl bg-darker">
                   <p className="font-orbitron text-sm text-accent tracking-wider mb-2">
                     FASTEST RESPONSE
                   </p>
@@ -260,7 +260,7 @@ export default function Contact() {
                     Send us a WhatsApp message for the quickest reply.
                     We&apos;re usually available within a few hours!
                   </p>
-                  <div className="flex gap-3">
+                  <div className="flex flex-col sm:flex-row gap-3">
                     <a
                       id="whatsapp-cta-1"
                       href="https://wa.me/94768394875?text=Hi%20TENZOR%20LABS,%20I%20need%20help%20with%20my%20project"

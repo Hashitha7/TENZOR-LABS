@@ -113,6 +113,7 @@ export default function MouseFollower() {
       <div
         ref={glowRef}
         aria-hidden="true"
+        className="cursor-el"
         style={{
           position: 'fixed',
           pointerEvents: 'none',
@@ -135,6 +136,7 @@ export default function MouseFollower() {
       <div
         ref={ringOuterRef}
         aria-hidden="true"
+        className="cursor-el"
         style={{
           position: 'fixed',
           pointerEvents: 'none',
@@ -170,6 +172,7 @@ export default function MouseFollower() {
       <div
         ref={dotRef}
         aria-hidden="true"
+        className="cursor-el"
         style={{
           position: 'fixed',
           pointerEvents: 'none',

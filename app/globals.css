@@ -504,7 +504,7 @@ body {
 /* --- TOUCH DEVICES (Global fixes) --- */
 @media (hover: none) and (pointer: coarse) {
   * { cursor: auto !important; } /* Restore native cursor on touch */
-  [aria-hidden="true"] { display: none !important; } /* Hide custom cursor divs */
+  .cursor-el { display: none !important; } /* Hide ONLY custom cursor divs — NOT icons */
   .service-card:hover { transform: none !important; } /* Disable heavy 3D hover on touch */
   .team-card:hover { transform: none !important; box-shadow: none !important; }
   .feature-item:hover { transform: none !important; }
